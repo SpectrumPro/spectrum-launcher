@@ -1,0 +1,396 @@
+[gd_scene load_steps=21 format=3 uid="uid://du485l0nqldud"]
+
+[ext_resource type="Script" uid="uid://cjoxfv3mbsw6b" path="res://UICore.gd" id="1_ocynv"]
+[ext_resource type="Theme" uid="uid://cyua45ur0ijqo" path="res://assets/Main.theme" id="1_r706s"]
+[ext_resource type="Texture2D" uid="uid://c4qsb5k0bip1r" path="res://assets/logos/spectrum_launcher/spectrum_launcher_dark_scaled/spectrum_launcher_dark-256px.png" id="2_qxptt"]
+[ext_resource type="Texture2D" uid="uid://d3q2xi00swmtc" path="res://assets/logos/spectrum_text/spectrum_text.svg" id="3_cnuty"]
+[ext_resource type="StyleBox" uid="uid://csle20exwqtti" path="res://assets/styles/PanelMenuBar.tres" id="3_oqhd1"]
+[ext_resource type="Texture2D" uid="uid://dyqwd8mnihdai" path="res://assets/icons/Launch.svg" id="5_avgbi"]
+[ext_resource type="Texture2D" uid="uid://cfxt06i2hhr4y" path="res://assets/icons/Add.svg" id="5_febpr"]
+[ext_resource type="Texture2D" uid="uid://f61cfjp5l45x" path="res://assets/icons/Settings.svg" id="5_h6j8f"]
+[ext_resource type="Texture2D" uid="uid://bgprgx1vpteqr" path="res://assets/icons/Console.svg" id="6_febpr"]
+[ext_resource type="Texture2D" uid="uid://bs2yq2wd13kem" path="res://assets/icons/Delete.svg" id="6_h6j8f"]
+[ext_resource type="Texture2D" uid="uid://dav1wsvjtk3um" path="res://assets/logos/spectrum/dark_scaled/spectrum_dark-32x32.png" id="7_febpr"]
+[ext_resource type="Texture2D" uid="uid://cqglg4514qgcl" path="res://assets/logos/spectrum_server/spectrum_server_dark_scaled/spectrum_server_dark-32px.png" id="8_hksc6"]
+[ext_resource type="Texture2D" uid="uid://fo2bxdpucir1" path="res://assets/logos/spectrum_launcher/spectrum_launcher_dark_scaled/spectrum_launcher_dark-32px.png" id="9_prxic"]
+[ext_resource type="Texture2D" uid="uid://c1og8sdss6pb2" path="res://assets/icons/Scroll.svg" id="10_hksc6"]
+[ext_resource type="Texture2D" uid="uid://d4hrr4snsx10m" path="res://assets/icons/ClearAll.svg" id="11_prxic"]
+[ext_resource type="Texture2D" uid="uid://cusba65iy15h5" path="res://assets/icons/OpenInNew.svg" id="12_avgbi"]
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_kdrkr"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_avgbi"]
+content_margin_left = 8.0
+content_margin_top = 8.0
+content_margin_right = 8.0
+content_margin_bottom = 8.0
+bg_color = Color(0.82073724, 0.0065067, 0.39180154, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.99887747, 0.36755347, 0.5705343, 1)
+border_blend = true
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_kdrkr"]
+size = Vector2(24, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oqhd1"]
+bg_color = Color(0, 0, 0, 0.61960787)
+corner_radius_top_left = 1
+corner_radius_top_right = 1
+corner_radius_bottom_right = 1
+corner_radius_bottom_left = 1
+
+[node name="UICore" type="Control" node_paths=PackedStringArray("boot_splash")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_r706s")
+script = ExtResource("1_ocynv")
+boot_splash = NodePath("ColorRect")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+theme_override_styles/panel = ExtResource("3_oqhd1")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/PanelContainer"]
+layout_mode = 2
+
+[node name="Control" type="Control" parent="VBoxContainer/PanelContainer/HBoxContainer"]
+custom_minimum_size = Vector2(6.25, 0)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/PanelContainer/HBoxContainer"]
+custom_minimum_size = Vector2(203.005, 0)
+layout_mode = 2
+size_flags_vertical = 4
+texture = ExtResource("3_cnuty")
+expand_mode = 5
+stretch_mode = 4
+
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer/PanelContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/PanelContainer/HBoxContainer/PanelContainer"]
+layout_mode = 2
+
+[node name="LauncherTabButton" type="Button" parent="VBoxContainer/PanelContainer/HBoxContainer/PanelContainer/HBoxContainer"]
+custom_minimum_size = Vector2(90, 0)
+layout_mode = 2
+toggle_mode = true
+button_pressed = true
+button_group = SubResource("ButtonGroup_kdrkr")
+text = "Launcher"
+icon = ExtResource("5_avgbi")
+
+[node name="ConsoleTabButton" type="Button" parent="VBoxContainer/PanelContainer/HBoxContainer/PanelContainer/HBoxContainer"]
+custom_minimum_size = Vector2(90, 0)
+layout_mode = 2
+toggle_mode = true
+button_group = SubResource("ButtonGroup_kdrkr")
+text = "Console"
+icon = ExtResource("6_febpr")
+
+[node name="SettingsTabButton" type="Button" parent="VBoxContainer/PanelContainer/HBoxContainer/PanelContainer/HBoxContainer"]
+custom_minimum_size = Vector2(90, 0)
+layout_mode = 2
+toggle_mode = true
+button_group = SubResource("ButtonGroup_kdrkr")
+text = "Settings"
+icon = ExtResource("5_h6j8f")
+
+[node name="TabContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Launcher" type="PanelContainer" parent="VBoxContainer/TabContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="HSplitContainer" type="HSplitContainer" parent="VBoxContainer/TabContainer/Launcher"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/TabContainer/Launcher/HSplitContainer"]
+custom_minimum_size = Vector2(270, 0)
+layout_mode = 2
+
+[node name="PanelContainer2" type="PanelContainer" parent="VBoxContainer/TabContainer/Launcher/HSplitContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="VBoxContainer/TabContainer/Launcher/HSplitContainer/VBoxContainer/PanelContainer2"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.4313402, 0.43134028, 0.43134007, 1)
+text = "No Profiles"
+horizontal_alignment = 1
+
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer/TabContainer/Launcher/HSplitContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/panel = ExtResource("3_oqhd1")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/TabContainer/Launcher/HSplitContainer/VBoxContainer/PanelContainer"]
+layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer/TabContainer/Launcher/HSplitContainer/VBoxContainer/PanelContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/TabContainer/Launcher/HSplitContainer/VBoxContainer/PanelContainer/HBoxContainer/PanelContainer"]
+layout_mode = 2
+
+[node name="Download" type="Button" parent="VBoxContainer/TabContainer/Launcher/HSplitContainer/VBoxContainer/PanelContainer/HBoxContainer/PanelContainer/HBoxContainer"]
+custom_minimum_size = Vector2(123, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Create"
+icon = ExtResource("5_febpr")
+
+[node name="Delete" type="Button" parent="VBoxContainer/TabContainer/Launcher/HSplitContainer/VBoxContainer/PanelContainer/HBoxContainer/PanelContainer/HBoxContainer"]
+custom_minimum_size = Vector2(123, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Remove"
+icon = ExtResource("6_h6j8f")
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="VBoxContainer/TabContainer/Launcher/HSplitContainer"]
+layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer/TabContainer/Launcher/HSplitContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="VBoxContainer/TabContainer/Launcher/HSplitContainer/VBoxContainer2/PanelContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.4313402, 0.43134028, 0.43134007, 1)
+text = "No Selected Profile"
+horizontal_alignment = 1
+
+[node name="PanelContainer2" type="PanelContainer" parent="VBoxContainer/TabContainer/Launcher/HSplitContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_styles/panel = ExtResource("3_oqhd1")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer/TabContainer/Launcher/HSplitContainer/VBoxContainer2/PanelContainer2"]
+layout_mode = 2
+horizontal_scroll_mode = 3
+vertical_scroll_mode = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/TabContainer/Launcher/HSplitContainer/VBoxContainer2/PanelContainer2/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer/TabContainer/Launcher/HSplitContainer/VBoxContainer2/PanelContainer2/ScrollContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/TabContainer/Launcher/HSplitContainer/VBoxContainer2/PanelContainer2/ScrollContainer/HBoxContainer/PanelContainer"]
+layout_mode = 2
+
+[node name="LaunchClient" type="Button" parent="VBoxContainer/TabContainer/Launcher/HSplitContainer/VBoxContainer2/PanelContainer2/ScrollContainer/HBoxContainer/PanelContainer/HBoxContainer"]
+custom_minimum_size = Vector2(160, 0)
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_constants/icon_max_width = 24
+text = "Launch Client"
+icon = ExtResource("7_febpr")
+
+[node name="LaunchServer" type="Button" parent="VBoxContainer/TabContainer/Launcher/HSplitContainer/VBoxContainer2/PanelContainer2/ScrollContainer/HBoxContainer/PanelContainer/HBoxContainer"]
+custom_minimum_size = Vector2(160, 0)
+layout_mode = 2
+theme_override_constants/icon_max_width = 24
+text = "Launch Server"
+icon = ExtResource("8_hksc6")
+
+[node name="LaunchBoth" type="Button" parent="VBoxContainer/TabContainer/Launcher/HSplitContainer/VBoxContainer2/PanelContainer2/ScrollContainer/HBoxContainer/PanelContainer/HBoxContainer"]
+custom_minimum_size = Vector2(160, 0)
+layout_mode = 2
+theme_override_constants/icon_max_width = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_avgbi")
+text = "Launch Both"
+icon = SubResource("PlaceholderTexture2D_kdrkr")
+
+[node name="Panel" type="Panel" parent="VBoxContainer/TabContainer/Launcher/HSplitContainer/VBoxContainer2/PanelContainer2/ScrollContainer/HBoxContainer/PanelContainer/HBoxContainer/LaunchBoth"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 5.0
+offset_right = 35.0
+offset_bottom = 35.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_oqhd1")
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/TabContainer/Launcher/HSplitContainer/VBoxContainer2/PanelContainer2/ScrollContainer/HBoxContainer/PanelContainer/HBoxContainer/LaunchBoth/Panel"]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -12.0
+offset_top = -12.0
+offset_right = 12.0
+offset_bottom = 12.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("9_prxic")
+expand_mode = 2
+
+[node name="Console" type="PanelContainer" parent="VBoxContainer/TabContainer"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HSplitContainer" type="HSplitContainer" parent="VBoxContainer/TabContainer/Console"]
+layout_mode = 2
+split_offset = 210
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/TabContainer/Console/HSplitContainer"]
+custom_minimum_size = Vector2(270, 0)
+layout_mode = 2
+
+[node name="PanelContainer2" type="PanelContainer" parent="VBoxContainer/TabContainer/Console/HSplitContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="VBoxContainer/TabContainer/Console/HSplitContainer/VBoxContainer/PanelContainer2"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.4313402, 0.43134028, 0.43134007, 1)
+text = "No Running Instances"
+horizontal_alignment = 1
+
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer/TabContainer/Console/HSplitContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/panel = ExtResource("3_oqhd1")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/TabContainer/Console/HSplitContainer/VBoxContainer/PanelContainer"]
+layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer/TabContainer/Console/HSplitContainer/VBoxContainer/PanelContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/TabContainer/Console/HSplitContainer/VBoxContainer/PanelContainer/HBoxContainer/PanelContainer"]
+layout_mode = 2
+
+[node name="LineEdit" type="LineEdit" parent="VBoxContainer/TabContainer/Console/HSplitContainer/VBoxContainer/PanelContainer/HBoxContainer/PanelContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "Search Running Instances"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="VBoxContainer/TabContainer/Console/HSplitContainer"]
+layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer/TabContainer/Console/HSplitContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="VBoxContainer/TabContainer/Console/HSplitContainer/VBoxContainer2/PanelContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.4313402, 0.43134028, 0.43134007, 1)
+text = "No Selected Instance"
+horizontal_alignment = 1
+
+[node name="PanelContainer2" type="PanelContainer" parent="VBoxContainer/TabContainer/Console/HSplitContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_styles/panel = ExtResource("3_oqhd1")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer/TabContainer/Console/HSplitContainer/VBoxContainer2/PanelContainer2"]
+layout_mode = 2
+horizontal_scroll_mode = 3
+vertical_scroll_mode = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/TabContainer/Console/HSplitContainer/VBoxContainer2/PanelContainer2/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer/TabContainer/Console/HSplitContainer/VBoxContainer2/PanelContainer2/ScrollContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/TabContainer/Console/HSplitContainer/VBoxContainer2/PanelContainer2/ScrollContainer/HBoxContainer/PanelContainer"]
+layout_mode = 2
+
+[node name="LineEdit" type="LineEdit" parent="VBoxContainer/TabContainer/Console/HSplitContainer/VBoxContainer2/PanelContainer2/ScrollContainer/HBoxContainer/PanelContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "Search Logs"
+
+[node name="PanelContainer2" type="PanelContainer" parent="VBoxContainer/TabContainer/Console/HSplitContainer/VBoxContainer2/PanelContainer2/ScrollContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/TabContainer/Console/HSplitContainer/VBoxContainer2/PanelContainer2/ScrollContainer/HBoxContainer/PanelContainer2"]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="VBoxContainer/TabContainer/Console/HSplitContainer/VBoxContainer2/PanelContainer2/ScrollContainer/HBoxContainer/PanelContainer2/HBoxContainer"]
+custom_minimum_size = Vector2(140, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+text = "Auto Scroll"
+icon = ExtResource("10_hksc6")
+
+[node name="Button2" type="Button" parent="VBoxContainer/TabContainer/Console/HSplitContainer/VBoxContainer2/PanelContainer2/ScrollContainer/HBoxContainer/PanelContainer2/HBoxContainer"]
+custom_minimum_size = Vector2(140, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+text = "Clear Logs"
+icon = ExtResource("11_prxic")
+
+[node name="Button3" type="Button" parent="VBoxContainer/TabContainer/Console/HSplitContainer/VBoxContainer2/PanelContainer2/ScrollContainer/HBoxContainer/PanelContainer2/HBoxContainer"]
+custom_minimum_size = Vector2(140, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+text = "Open File"
+icon = ExtResource("12_avgbi")
+
+[node name="Settings" type="PanelContainer" parent="VBoxContainer/TabContainer"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0901961, 0.0901961, 0.0901961, 1)
+
+[node name="TextureRect" type="TextureRect" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_qxptt")
+
+[connection signal="toggled" from="VBoxContainer/PanelContainer/HBoxContainer/PanelContainer/HBoxContainer/LauncherTabButton" to="VBoxContainer/TabContainer/Launcher" method="set_visible"]
+[connection signal="toggled" from="VBoxContainer/PanelContainer/HBoxContainer/PanelContainer/HBoxContainer/ConsoleTabButton" to="VBoxContainer/TabContainer/Console" method="set_visible"]
+[connection signal="toggled" from="VBoxContainer/PanelContainer/HBoxContainer/PanelContainer/HBoxContainer/SettingsTabButton" to="VBoxContainer/TabContainer/Settings" method="set_visible"]

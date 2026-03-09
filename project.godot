@@ -1,0 +1,35 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="SpectrumLauncher"
+config/version="v1.0.0-beta.1"
+run/main_scene="uid://du485l0nqldud"
+config/use_custom_user_dir=true
+config/custom_user_dir_name="SpectrumLauncher"
+config/features=PackedStringArray("4.5", "GL Compatibility")
+boot_splash/bg_color=Color(0.0901961, 0.0901961, 0.0901961, 1)
+boot_splash/fullsize=false
+boot_splash/image="uid://c4qsb5k0bip1r"
+config/icon="uid://bodp6ipmivofb"
+config/macos_native_icon="res://assets/logos/spectrum_launcher/spectrum_launcher_dark.icns"
+config/windows_native_icon="res://assets/logos/spectrum_launcher/spectrum_launcher_dark.ico"
+boot_splash/minimum_display_time=1000
+
+[gui]
+
+theme/custom="uid://cyua45ur0ijqo"
+
+[rendering]
+
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"
+environment/defaults/default_clear_color=Color(0.13725491, 0.13725491, 0.13725491, 1)
