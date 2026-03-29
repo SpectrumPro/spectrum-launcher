@@ -14,6 +14,13 @@ const BOOT_SPLASH_FADE_TIME: float = 0.3
 @export var boot_splash: Control
 
 
+## init
+func _init() -> void:
+	super._init()
+	
+	_set_class_name("UICore")
+
+
 ## Ready
 func _ready() -> void:
 	boot_splash.show()

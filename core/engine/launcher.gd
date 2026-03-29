@@ -23,7 +23,8 @@ var _settings: SettingsManager = SettingsManager.new()
 ## init
 func _init() -> void:
 	_settings.set_owner(self)
-	_settings.set_inheritance_array(["CoreEngine"])
+	_settings.set_inheritance_array(["CoreLauncher"])
+
 
 
 ## Creates a new Cluster
@@ -53,3 +54,8 @@ func remove_cluster(p_cluster) -> bool:
 	_clusters.erase(p_cluster)
 	cluster_removed.emit(p_cluster)
 	return true
+
+
+## Returns the SettingsManager
+func get_settings() -> SettingsManager:
+	return _settings

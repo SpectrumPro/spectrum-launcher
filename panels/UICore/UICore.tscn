@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://du485l0nqldud"]
+[gd_scene load_steps=32 format=3 uid="uid://du485l0nqldud"]
 
 [ext_resource type="Script" uid="uid://cjoxfv3mbsw6b" path="res://panels/UICore/UICore.gd" id="1_ocynv"]
 [ext_resource type="Theme" uid="uid://cyua45ur0ijqo" path="res://modules/Vertex/assets/themes/Main.theme" id="1_r706s"]
@@ -14,10 +14,12 @@
 [ext_resource type="Script" uid="uid://bucf4ef5wfov8" path="res://panels/UICore/UICoreLauncherTab.gd" id="8_x6rwm"]
 [ext_resource type="Texture2D" uid="uid://fo2bxdpucir1" path="res://assets/logos/spectrum_launcher/spectrum_launcher_dark_scaled/spectrum_launcher_dark-32px.png" id="9_prxic"]
 [ext_resource type="Texture2D" uid="uid://c1og8sdss6pb2" path="res://assets/icons/Scroll.svg" id="10_hksc6"]
+[ext_resource type="PackedScene" uid="uid://kjup3yrjifr5" path="res://modules/Vertex/components/SettingsManagerView/SettingsManagerView.tscn" id="10_iht7s"]
 [ext_resource type="Texture2D" uid="uid://d4hrr4snsx10m" path="res://assets/icons/ClearAll.svg" id="11_prxic"]
 [ext_resource type="Texture2D" uid="uid://oojb1425vofd" path="res://modules/Vertex/assets/icons/OpenInNew.svg" id="12_avgbi"]
 [ext_resource type="Texture2D" uid="uid://dylarrrwlpxwu" path="res://modules/Vertex/assets/icons/Search.svg" id="14_ri43q"]
 [ext_resource type="FontFile" uid="uid://cs2wvujkmntvv" path="res://assets/font/SourceCodePro-VariableFont_wght.ttf" id="15_s5yey"]
+[ext_resource type="PackedScene" uid="uid://ckb04qr7yyeyn" path="res://panels/UISettings/UISettings.tscn" id="19_67wo4"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iotmj"]
 content_margin_left = 5.0
@@ -199,13 +201,11 @@ icon = ExtResource("6_febpr")
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Launcher" type="PanelContainer" parent="VBoxContainer/TabContainer" node_paths=PackedStringArray("cluster_container", "delete_cluster_button")]
+[node name="Launcher" type="PanelContainer" parent="VBoxContainer/TabContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource("8_x6rwm")
-cluster_container = NodePath("HSplitContainer/VBoxContainer/PanelContainer2/ScrollContainer/ClusterContainer")
-delete_cluster_button = NodePath("HSplitContainer/VBoxContainer/PanelContainer/HBoxContainer/PanelContainer/HBoxContainer/DeleteCluster")
 
 [node name="HSplitContainer" type="HSplitContainer" parent="VBoxContainer/TabContainer/Launcher"]
 layout_mode = 2
@@ -230,6 +230,7 @@ layout_mode = 2
 horizontal_scroll_mode = 0
 
 [node name="ClusterContainer" type="VBoxContainer" parent="VBoxContainer/TabContainer/Launcher/HSplitContainer/VBoxContainer/PanelContainer2/ScrollContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -257,6 +258,7 @@ text = "Create"
 icon = ExtResource("5_febpr")
 
 [node name="DeleteCluster" type="Button" parent="VBoxContainer/TabContainer/Launcher/HSplitContainer/VBoxContainer/PanelContainer/HBoxContainer/PanelContainer/HBoxContainer"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(123, 0)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -271,11 +273,16 @@ layout_mode = 2
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Label" type="Label" parent="VBoxContainer/TabContainer/Launcher/HSplitContainer/VBoxContainer2/PanelContainer"]
+[node name="NoSelectedCluster" type="Label" parent="VBoxContainer/TabContainer/Launcher/HSplitContainer/VBoxContainer2/PanelContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 theme_override_colors/font_color = Color(0.4313402, 0.43134028, 0.43134007, 1)
 text = "No Selected Cluster"
 horizontal_alignment = 1
+
+[node name="ClusterManagerView" parent="VBoxContainer/TabContainer/Launcher/HSplitContainer/VBoxContainer2/PanelContainer" instance=ExtResource("10_iht7s")]
+unique_name_in_owner = true
+layout_mode = 2
 
 [node name="PanelContainer2" type="PanelContainer" parent="VBoxContainer/TabContainer/Launcher/HSplitContainer/VBoxContainer2"]
 layout_mode = 2
@@ -568,10 +575,10 @@ size_flags_horizontal = 0
 text = "Open File"
 icon = ExtResource("12_avgbi")
 
-[node name="Settings" type="PanelContainer" parent="VBoxContainer/TabContainer"]
+[node name="UISettings" parent="VBoxContainer/TabContainer" instance=ExtResource("19_67wo4")]
 visible = false
 layout_mode = 2
-size_flags_horizontal = 3
+display_mode = 2
 
 [node name="ColorRect" type="ColorRect" parent="."]
 visible = false
@@ -600,7 +607,7 @@ texture = ExtResource("2_qxptt")
 
 [connection signal="toggled" from="VBoxContainer/PanelContainer/HBoxContainer/PanelContainer/HBoxContainer/LauncherTabButton" to="VBoxContainer/TabContainer/Launcher" method="set_visible"]
 [connection signal="toggled" from="VBoxContainer/PanelContainer/HBoxContainer/PanelContainer/HBoxContainer/ConsoleTabButton" to="VBoxContainer/TabContainer/Console" method="set_visible"]
-[connection signal="toggled" from="VBoxContainer/PanelContainer/HBoxContainer/PanelContainer/HBoxContainer/SettingsTabButton" to="VBoxContainer/TabContainer/Settings" method="set_visible"]
+[connection signal="toggled" from="VBoxContainer/PanelContainer/HBoxContainer/PanelContainer/HBoxContainer/SettingsTabButton" to="VBoxContainer/TabContainer/UISettings" method="set_visible"]
 [connection signal="gui_input" from="VBoxContainer/TabContainer/Launcher/HSplitContainer/VBoxContainer/PanelContainer2/ScrollContainer/ClusterContainer" to="VBoxContainer/TabContainer/Launcher" method="_on_cluster_container_gui_input"]
 [connection signal="pressed" from="VBoxContainer/TabContainer/Launcher/HSplitContainer/VBoxContainer/PanelContainer/HBoxContainer/PanelContainer/HBoxContainer/CreateCluster" to="VBoxContainer/TabContainer/Launcher" method="_on_create_cluster_pressed"]
 [connection signal="pressed" from="VBoxContainer/TabContainer/Launcher/HSplitContainer/VBoxContainer/PanelContainer/HBoxContainer/PanelContainer/HBoxContainer/DeleteCluster" to="VBoxContainer/TabContainer/Launcher" method="_on_delete_cluster_pressed"]

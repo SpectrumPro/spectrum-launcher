@@ -7,10 +7,16 @@ class_name UICoreLauncherTab extends Control
 
 
 ## The Container to show all ClusterItems
-@export var cluster_container: VBoxContainer
+@onready var cluster_container: VBoxContainer = %ClusterContainer
 
 ## The DeleteCluster Button
-@export var delete_cluster_button: Button
+@onready var delete_cluster_button: Button = %DeleteCluster
+
+## The SettingsManagerView to manage a Cluster
+@onready var cluster_manager: SettingsManagerView = %ClusterManagerView
+
+## The Label to show when no cluster is selected
+@onready var no_selected_label: Label = %NoSelectedCluster
 
 
 ## RefMap for Cluster: ClusterItem
@@ -37,14 +43,19 @@ func set_selected(p_cluster: Cluster) -> void:
 		_clusters.left(_selected_cluster).set_selected(false)
 	
 	_selected_cluster = p_cluster
+	cluster_manager.reset()
 	
 	var is_valid: bool = is_instance_valid(_selected_cluster)
+	
 	delete_cluster_button.set_disabled(not is_valid)
+	cluster_manager.set_visible(is_valid)
+	no_selected_label.set_visible(not is_valid)
 	
 	if not is_valid:
 		return
 	
 	_clusters.left(_selected_cluster).set_selected(true)
+	cluster_manager.set_manager(p_cluster.get_settings_manager())
 
 
 ## Adds a Cluster to the list
@@ -52,6 +63,7 @@ func _add_cluster(p_cluster: Cluster) -> void:
 	var new_item: ClusterItem = preload("res://components/ClusterItem/ClusterItem.tscn").instantiate()
 	
 	_cluster_item_connections.connect_object(new_item, true)
+	new_item.set_cluster(p_cluster)
 	
 	_clusters.map(p_cluster, new_item)
 	cluster_container.add_child(new_item)
@@ -76,7 +88,10 @@ func _on_cluster_item_clicked(p_item: ClusterItem) -> void:
 
 ## Called when the CreateCluster button is pressed
 func _on_create_cluster_pressed() -> void:
-	Launcher.create_cluster()
+	var cluster: Cluster = Launcher.create_cluster()
+	
+	Interface.show_window_popup(UIPopupSettingsModule, self, cluster.get_settings_manager().get_entry("Name"))
+	set_selected(cluster)
 
 
 ## Called when the DeleteCluster Button is pressed

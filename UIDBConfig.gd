@@ -17,6 +17,7 @@ const ICON_LOCATION: String = "res://assets/icons/"
 ## All user defined UIPanels
 static var panels: Dictionary[String, PackedScene] = {
 	"UICore":				load(_p("UICore")),
+	"UISettings":			load(_p("UISettings")),
 }
 
 ## All user defined UIPanels
@@ -37,7 +38,8 @@ static var class_icons: Dictionary[String, PackedScene] = {}
 ## Categorys of the user defined panels
 static var panels_by_category: Dictionary[String, Array] = {
 	"System": [
-		"UICore"
+		"UICore",
+		"UISettings",
 	]
 }
 
