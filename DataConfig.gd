@@ -7,6 +7,7 @@ class SubType:
 	enum Type {
 		NULL,						## No Type
 		OBJECT_LAUNCHERITEM,		## A EngineComponent
+		OBJECT_UIPANEL,				## A UIPanel instance
 		PACKEDSCENE_UIPANEL,		## A UIPanel
 	}
 
