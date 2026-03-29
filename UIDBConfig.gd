@@ -23,7 +23,10 @@ static var panels: Dictionary[String, PackedScene] = {
 static var popups: Dictionary[String, PackedScene]
 
 ## All user defined UIPanels
-static var components: Dictionary[String, PackedScene]
+static var components: Dictionary[String, PackedScene] = {
+	"ClusterItem":			load(_c("ClusterItem")),
+	"InstanceTag":			load(_c("InstanceTag"))
+}
 
 ## All user defined UIPanels
 static var data_inputs: Dictionary[Data.Type, Variant] = {}

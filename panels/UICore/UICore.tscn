@@ -1,16 +1,17 @@
-[gd_scene load_steps=29 format=3 uid="uid://du485l0nqldud"]
+[gd_scene load_steps=30 format=3 uid="uid://du485l0nqldud"]
 
-[ext_resource type="Script" uid="uid://cjoxfv3mbsw6b" path="res://panels/UICore.gd" id="1_ocynv"]
+[ext_resource type="Script" uid="uid://cjoxfv3mbsw6b" path="res://panels/UICore/UICore.gd" id="1_ocynv"]
 [ext_resource type="Theme" uid="uid://cyua45ur0ijqo" path="res://modules/Vertex/assets/themes/Main.theme" id="1_r706s"]
 [ext_resource type="Texture2D" uid="uid://c4qsb5k0bip1r" path="res://assets/logos/spectrum_launcher/spectrum_launcher_dark_scaled/spectrum_launcher_dark-256px.png" id="2_qxptt"]
 [ext_resource type="Texture2D" uid="uid://d3q2xi00swmtc" path="res://assets/logos/spectrum_text/spectrum_text.svg" id="3_cnuty"]
 [ext_resource type="Texture2D" uid="uid://dyqwd8mnihdai" path="res://assets/icons/Launch.svg" id="5_avgbi"]
 [ext_resource type="Texture2D" uid="uid://bbennjke0ioen" path="res://modules/Vertex/assets/icons/Add.svg" id="5_febpr"]
+[ext_resource type="Texture2D" uid="uid://dvb0tqyrkaajq" path="res://modules/Vertex/assets/icons/Terminal.svg" id="5_mam6y"]
 [ext_resource type="Texture2D" uid="uid://c6xnsmttojanx" path="res://modules/Vertex/assets/icons/Settings.svg" id="6_febpr"]
 [ext_resource type="Texture2D" uid="uid://dfrrs2dnvlvsu" path="res://modules/Vertex/assets/icons/Delete.svg" id="6_h6j8f"]
 [ext_resource type="Texture2D" uid="uid://dav1wsvjtk3um" path="res://assets/logos/spectrum/dark_scaled/spectrum_dark-32x32.png" id="7_febpr"]
 [ext_resource type="Texture2D" uid="uid://cqglg4514qgcl" path="res://assets/logos/spectrum_server/spectrum_server_dark_scaled/spectrum_server_dark-32px.png" id="8_hksc6"]
-[ext_resource type="Script" uid="uid://bucf4ef5wfov8" path="res://panels/UICoreLauncherTab.gd" id="8_x6rwm"]
+[ext_resource type="Script" uid="uid://bucf4ef5wfov8" path="res://panels/UICore/UICoreLauncherTab.gd" id="8_x6rwm"]
 [ext_resource type="Texture2D" uid="uid://fo2bxdpucir1" path="res://assets/logos/spectrum_launcher/spectrum_launcher_dark_scaled/spectrum_launcher_dark-32px.png" id="9_prxic"]
 [ext_resource type="Texture2D" uid="uid://c1og8sdss6pb2" path="res://assets/icons/Scroll.svg" id="10_hksc6"]
 [ext_resource type="Texture2D" uid="uid://d4hrr4snsx10m" path="res://assets/icons/ClearAll.svg" id="11_prxic"]
@@ -184,7 +185,7 @@ layout_mode = 2
 toggle_mode = true
 button_group = SubResource("ButtonGroup_kdrkr")
 text = "Console"
-icon = ExtResource("6_febpr")
+icon = ExtResource("5_mam6y")
 
 [node name="SettingsTabButton" type="Button" parent="VBoxContainer/PanelContainer/HBoxContainer/PanelContainer/HBoxContainer"]
 custom_minimum_size = Vector2(90, 0)

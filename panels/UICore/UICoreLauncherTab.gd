@@ -49,7 +49,7 @@ func set_selected(p_cluster: Cluster) -> void:
 
 ## Adds a Cluster to the list
 func _add_cluster(p_cluster: Cluster) -> void:
-	var new_item: ClusterItem = preload("res://panels/ClusterItem/ClusterItem.tscn").instantiate()
+	var new_item: ClusterItem = preload("res://components/ClusterItem/ClusterItem.tscn").instantiate()
 	
 	_cluster_item_connections.connect_object(new_item, true)
 	

@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://4f6atf2q7xo6"]
 
 [ext_resource type="Texture2D" uid="uid://ck51tqhqcro1v" path="res://assets/logos/spectrum/dark_scaled/spectrum_dark-16x16.png" id="1_h8cao"]
-[ext_resource type="Script" uid="uid://8qnj0t3kxx5x" path="res://panels/ClusterItem/InstanceTag/InstanceTag.gd" id="1_he7jo"]
+[ext_resource type="Script" uid="uid://8qnj0t3kxx5x" path="res://components/InstanceTag/InstanceTag.gd" id="1_he7jo"]
 
 [node name="InstanceTag" type="PanelContainer"]
 size_flags_horizontal = 3

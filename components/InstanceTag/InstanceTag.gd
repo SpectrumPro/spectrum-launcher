@@ -2,7 +2,7 @@
 # This file is part of the Spectrum Lighting Controller, licensed under the GPL v3.0 or later.
 # See the LICENSE file for details.
 
-class_name InstanceTag extends Control
+class_name InstanceTag extends UIComponent
 ## Displats the icon and version of an Instance
 
 
