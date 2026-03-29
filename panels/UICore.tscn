@@ -1,22 +1,21 @@
-[gd_scene load_steps=30 format=3 uid="uid://du485l0nqldud"]
+[gd_scene load_steps=29 format=3 uid="uid://du485l0nqldud"]
 
 [ext_resource type="Script" uid="uid://cjoxfv3mbsw6b" path="res://panels/UICore.gd" id="1_ocynv"]
 [ext_resource type="Theme" uid="uid://cyua45ur0ijqo" path="res://modules/Vertex/assets/themes/Main.theme" id="1_r706s"]
 [ext_resource type="Texture2D" uid="uid://c4qsb5k0bip1r" path="res://assets/logos/spectrum_launcher/spectrum_launcher_dark_scaled/spectrum_launcher_dark-256px.png" id="2_qxptt"]
 [ext_resource type="Texture2D" uid="uid://d3q2xi00swmtc" path="res://assets/logos/spectrum_text/spectrum_text.svg" id="3_cnuty"]
 [ext_resource type="Texture2D" uid="uid://dyqwd8mnihdai" path="res://assets/icons/Launch.svg" id="5_avgbi"]
-[ext_resource type="Texture2D" uid="uid://cfxt06i2hhr4y" path="res://assets/icons/Add.svg" id="5_febpr"]
-[ext_resource type="Texture2D" uid="uid://f61cfjp5l45x" path="res://assets/icons/Settings.svg" id="5_h6j8f"]
-[ext_resource type="Texture2D" uid="uid://bgprgx1vpteqr" path="res://assets/icons/Console.svg" id="6_febpr"]
-[ext_resource type="Texture2D" uid="uid://bs2yq2wd13kem" path="res://assets/icons/Delete.svg" id="6_h6j8f"]
+[ext_resource type="Texture2D" uid="uid://bbennjke0ioen" path="res://modules/Vertex/assets/icons/Add.svg" id="5_febpr"]
+[ext_resource type="Texture2D" uid="uid://c6xnsmttojanx" path="res://modules/Vertex/assets/icons/Settings.svg" id="6_febpr"]
+[ext_resource type="Texture2D" uid="uid://dfrrs2dnvlvsu" path="res://modules/Vertex/assets/icons/Delete.svg" id="6_h6j8f"]
 [ext_resource type="Texture2D" uid="uid://dav1wsvjtk3um" path="res://assets/logos/spectrum/dark_scaled/spectrum_dark-32x32.png" id="7_febpr"]
 [ext_resource type="Texture2D" uid="uid://cqglg4514qgcl" path="res://assets/logos/spectrum_server/spectrum_server_dark_scaled/spectrum_server_dark-32px.png" id="8_hksc6"]
 [ext_resource type="Script" uid="uid://bucf4ef5wfov8" path="res://panels/UICoreLauncherTab.gd" id="8_x6rwm"]
 [ext_resource type="Texture2D" uid="uid://fo2bxdpucir1" path="res://assets/logos/spectrum_launcher/spectrum_launcher_dark_scaled/spectrum_launcher_dark-32px.png" id="9_prxic"]
 [ext_resource type="Texture2D" uid="uid://c1og8sdss6pb2" path="res://assets/icons/Scroll.svg" id="10_hksc6"]
 [ext_resource type="Texture2D" uid="uid://d4hrr4snsx10m" path="res://assets/icons/ClearAll.svg" id="11_prxic"]
-[ext_resource type="Texture2D" uid="uid://cusba65iy15h5" path="res://assets/icons/OpenInNew.svg" id="12_avgbi"]
-[ext_resource type="Texture2D" uid="uid://dn5k7k2wq2tm5" path="res://assets/icons/Search.svg" id="14_ri43q"]
+[ext_resource type="Texture2D" uid="uid://oojb1425vofd" path="res://modules/Vertex/assets/icons/OpenInNew.svg" id="12_avgbi"]
+[ext_resource type="Texture2D" uid="uid://dylarrrwlpxwu" path="res://modules/Vertex/assets/icons/Search.svg" id="14_ri43q"]
 [ext_resource type="FontFile" uid="uid://cs2wvujkmntvv" path="res://assets/font/SourceCodePro-VariableFont_wght.ttf" id="15_s5yey"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iotmj"]
@@ -193,7 +192,7 @@ layout_mode = 2
 toggle_mode = true
 button_group = SubResource("ButtonGroup_kdrkr")
 text = "Settings"
-icon = ExtResource("5_h6j8f")
+icon = ExtResource("6_febpr")
 
 [node name="TabContainer" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
