@@ -1,10 +1,9 @@
-[gd_scene load_steps=21 format=3 uid="uid://du485l0nqldud"]
+[gd_scene load_steps=30 format=3 uid="uid://du485l0nqldud"]
 
-[ext_resource type="Script" uid="uid://cjoxfv3mbsw6b" path="res://UICore.gd" id="1_ocynv"]
-[ext_resource type="Theme" uid="uid://cyua45ur0ijqo" path="res://assets/Main.theme" id="1_r706s"]
+[ext_resource type="Script" uid="uid://cjoxfv3mbsw6b" path="res://panels/UICore.gd" id="1_ocynv"]
+[ext_resource type="Theme" uid="uid://cyua45ur0ijqo" path="res://modules/Vertex/assets/themes/Main.theme" id="1_r706s"]
 [ext_resource type="Texture2D" uid="uid://c4qsb5k0bip1r" path="res://assets/logos/spectrum_launcher/spectrum_launcher_dark_scaled/spectrum_launcher_dark-256px.png" id="2_qxptt"]
 [ext_resource type="Texture2D" uid="uid://d3q2xi00swmtc" path="res://assets/logos/spectrum_text/spectrum_text.svg" id="3_cnuty"]
-[ext_resource type="StyleBox" uid="uid://csle20exwqtti" path="res://assets/styles/PanelMenuBar.tres" id="3_oqhd1"]
 [ext_resource type="Texture2D" uid="uid://dyqwd8mnihdai" path="res://assets/icons/Launch.svg" id="5_avgbi"]
 [ext_resource type="Texture2D" uid="uid://cfxt06i2hhr4y" path="res://assets/icons/Add.svg" id="5_febpr"]
 [ext_resource type="Texture2D" uid="uid://f61cfjp5l45x" path="res://assets/icons/Settings.svg" id="5_h6j8f"]
@@ -12,10 +11,25 @@
 [ext_resource type="Texture2D" uid="uid://bs2yq2wd13kem" path="res://assets/icons/Delete.svg" id="6_h6j8f"]
 [ext_resource type="Texture2D" uid="uid://dav1wsvjtk3um" path="res://assets/logos/spectrum/dark_scaled/spectrum_dark-32x32.png" id="7_febpr"]
 [ext_resource type="Texture2D" uid="uid://cqglg4514qgcl" path="res://assets/logos/spectrum_server/spectrum_server_dark_scaled/spectrum_server_dark-32px.png" id="8_hksc6"]
+[ext_resource type="Script" uid="uid://bucf4ef5wfov8" path="res://panels/UICoreLauncherTab.gd" id="8_x6rwm"]
 [ext_resource type="Texture2D" uid="uid://fo2bxdpucir1" path="res://assets/logos/spectrum_launcher/spectrum_launcher_dark_scaled/spectrum_launcher_dark-32px.png" id="9_prxic"]
 [ext_resource type="Texture2D" uid="uid://c1og8sdss6pb2" path="res://assets/icons/Scroll.svg" id="10_hksc6"]
 [ext_resource type="Texture2D" uid="uid://d4hrr4snsx10m" path="res://assets/icons/ClearAll.svg" id="11_prxic"]
 [ext_resource type="Texture2D" uid="uid://cusba65iy15h5" path="res://assets/icons/OpenInNew.svg" id="12_avgbi"]
+[ext_resource type="Texture2D" uid="uid://dn5k7k2wq2tm5" path="res://assets/icons/Search.svg" id="14_ri43q"]
+[ext_resource type="FontFile" uid="uid://cs2wvujkmntvv" path="res://assets/font/SourceCodePro-VariableFont_wght.ttf" id="15_s5yey"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iotmj"]
+content_margin_left = 5.0
+content_margin_top = 5.0
+content_margin_right = 5.0
+content_margin_bottom = 5.0
+bg_color = Color(0.188067, 0.188067, 0.188067, 1)
+border_color = Color(0.309804, 0.309804, 0.309804, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
 
 [sub_resource type="ButtonGroup" id="ButtonGroup_kdrkr"]
 
@@ -36,6 +50,23 @@ corner_radius_top_right = 2
 corner_radius_bottom_right = 2
 corner_radius_bottom_left = 2
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g4gss"]
+content_margin_left = 8.0
+content_margin_top = 8.0
+content_margin_right = 8.0
+content_margin_bottom = 8.0
+bg_color = Color(0.4767831, 0.0015231578, 0.21673307, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.99887747, 0.36755347, 0.5705343, 1)
+border_blend = true
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_kdrkr"]
 size = Vector2(24, 0)
 
@@ -45,6 +76,53 @@ corner_radius_top_left = 1
 corner_radius_top_right = 1
 corner_radius_bottom_right = 1
 corner_radius_bottom_left = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h7bru"]
+content_margin_left = 5.0
+content_margin_top = 5.0
+content_margin_right = 5.0
+content_margin_bottom = 5.0
+bg_color = Color(0.105882354, 0.105882354, 0.105882354, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0.4302037, 0.8143706, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x6rwm"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_00dbt"]
+
+[sub_resource type="FontVariation" id="FontVariation_q5s34"]
+base_font = ExtResource("15_s5yey")
+variation_opentype = {
+2003265652: 400
+}
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ucqqu"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+bg_color = Color(0.101960786, 0.101960786, 0.101960786, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.21230483, 0.21230483, 0.21230483, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
 
 [node name="UICore" type="Control" node_paths=PackedStringArray("boot_splash")]
 layout_mode = 3
@@ -68,7 +146,7 @@ grow_vertical = 2
 [node name="PanelContainer" type="PanelContainer" parent="VBoxContainer"]
 custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
-theme_override_styles/panel = ExtResource("3_oqhd1")
+theme_override_styles/panel = SubResource("StyleBoxFlat_iotmj")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/PanelContainer"]
 layout_mode = 2
@@ -121,10 +199,13 @@ icon = ExtResource("5_h6j8f")
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Launcher" type="PanelContainer" parent="VBoxContainer/TabContainer"]
+[node name="Launcher" type="PanelContainer" parent="VBoxContainer/TabContainer" node_paths=PackedStringArray("cluster_container", "delete_cluster_button")]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+script = ExtResource("8_x6rwm")
+cluster_container = NodePath("HSplitContainer/VBoxContainer/PanelContainer2/ScrollContainer/ClusterContainer")
+delete_cluster_button = NodePath("HSplitContainer/VBoxContainer/PanelContainer/HBoxContainer/PanelContainer/HBoxContainer/DeleteCluster")
 
 [node name="HSplitContainer" type="HSplitContainer" parent="VBoxContainer/TabContainer/Launcher"]
 layout_mode = 2
@@ -137,15 +218,26 @@ layout_mode = 2
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Label" type="Label" parent="VBoxContainer/TabContainer/Launcher/HSplitContainer/VBoxContainer/PanelContainer2"]
+[node name="NoProfiles" type="Label" parent="VBoxContainer/TabContainer/Launcher/HSplitContainer/VBoxContainer/PanelContainer2"]
+visible = false
 layout_mode = 2
 theme_override_colors/font_color = Color(0.4313402, 0.43134028, 0.43134007, 1)
 text = "No Profiles"
 horizontal_alignment = 1
 
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer/TabContainer/Launcher/HSplitContainer/VBoxContainer/PanelContainer2"]
+layout_mode = 2
+horizontal_scroll_mode = 0
+
+[node name="ClusterContainer" type="VBoxContainer" parent="VBoxContainer/TabContainer/Launcher/HSplitContainer/VBoxContainer/PanelContainer2/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 0
+
 [node name="PanelContainer" type="PanelContainer" parent="VBoxContainer/TabContainer/Launcher/HSplitContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_styles/panel = ExtResource("3_oqhd1")
+theme_override_styles/panel = SubResource("StyleBoxFlat_iotmj")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/TabContainer/Launcher/HSplitContainer/VBoxContainer/PanelContainer"]
 layout_mode = 2
@@ -157,17 +249,18 @@ size_flags_horizontal = 3
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/TabContainer/Launcher/HSplitContainer/VBoxContainer/PanelContainer/HBoxContainer/PanelContainer"]
 layout_mode = 2
 
-[node name="Download" type="Button" parent="VBoxContainer/TabContainer/Launcher/HSplitContainer/VBoxContainer/PanelContainer/HBoxContainer/PanelContainer/HBoxContainer"]
+[node name="CreateCluster" type="Button" parent="VBoxContainer/TabContainer/Launcher/HSplitContainer/VBoxContainer/PanelContainer/HBoxContainer/PanelContainer/HBoxContainer"]
 custom_minimum_size = Vector2(123, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Create"
 icon = ExtResource("5_febpr")
 
-[node name="Delete" type="Button" parent="VBoxContainer/TabContainer/Launcher/HSplitContainer/VBoxContainer/PanelContainer/HBoxContainer/PanelContainer/HBoxContainer"]
+[node name="DeleteCluster" type="Button" parent="VBoxContainer/TabContainer/Launcher/HSplitContainer/VBoxContainer/PanelContainer/HBoxContainer/PanelContainer/HBoxContainer"]
 custom_minimum_size = Vector2(123, 0)
 layout_mode = 2
 size_flags_horizontal = 3
+disabled = true
 text = "Remove"
 icon = ExtResource("6_h6j8f")
 
@@ -181,12 +274,12 @@ size_flags_vertical = 3
 [node name="Label" type="Label" parent="VBoxContainer/TabContainer/Launcher/HSplitContainer/VBoxContainer2/PanelContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.4313402, 0.43134028, 0.43134007, 1)
-text = "No Selected Profile"
+text = "No Selected Cluster"
 horizontal_alignment = 1
 
 [node name="PanelContainer2" type="PanelContainer" parent="VBoxContainer/TabContainer/Launcher/HSplitContainer/VBoxContainer2"]
 layout_mode = 2
-theme_override_styles/panel = ExtResource("3_oqhd1")
+theme_override_styles/panel = SubResource("StyleBoxFlat_iotmj")
 
 [node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer/TabContainer/Launcher/HSplitContainer/VBoxContainer2/PanelContainer2"]
 layout_mode = 2
@@ -209,6 +302,7 @@ custom_minimum_size = Vector2(160, 0)
 layout_mode = 2
 size_flags_horizontal = 10
 theme_override_constants/icon_max_width = 24
+disabled = true
 text = "Launch Client"
 icon = ExtResource("7_febpr")
 
@@ -216,6 +310,7 @@ icon = ExtResource("7_febpr")
 custom_minimum_size = Vector2(160, 0)
 layout_mode = 2
 theme_override_constants/icon_max_width = 24
+disabled = true
 text = "Launch Server"
 icon = ExtResource("8_hksc6")
 
@@ -224,6 +319,8 @@ custom_minimum_size = Vector2(160, 0)
 layout_mode = 2
 theme_override_constants/icon_max_width = 24
 theme_override_styles/normal = SubResource("StyleBoxFlat_avgbi")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_g4gss")
+disabled = true
 text = "Launch Both"
 icon = SubResource("PlaceholderTexture2D_kdrkr")
 
@@ -271,15 +368,104 @@ layout_mode = 2
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Label" type="Label" parent="VBoxContainer/TabContainer/Console/HSplitContainer/VBoxContainer/PanelContainer2"]
+[node name="NoRunningInstances" type="Label" parent="VBoxContainer/TabContainer/Console/HSplitContainer/VBoxContainer/PanelContainer2"]
+visible = false
 layout_mode = 2
 theme_override_colors/font_color = Color(0.4313402, 0.43134028, 0.43134007, 1)
 text = "No Running Instances"
 horizontal_alignment = 1
 
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/TabContainer/Console/HSplitContainer/VBoxContainer/PanelContainer2"]
+layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer/TabContainer/Console/HSplitContainer/VBoxContainer/PanelContainer2/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_h7bru")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/TabContainer/Console/HSplitContainer/VBoxContainer/PanelContainer2/VBoxContainer/PanelContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="VBoxContainer/TabContainer/Console/HSplitContainer/VBoxContainer/PanelContainer2/VBoxContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="PanelContainer2" type="PanelContainer" parent="VBoxContainer/TabContainer/Console/HSplitContainer/VBoxContainer/PanelContainer2/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/TabContainer/Console/HSplitContainer/VBoxContainer/PanelContainer2/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer3/PanelContainer2"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/TabContainer/Console/HSplitContainer/VBoxContainer/PanelContainer2/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer3/PanelContainer2/HBoxContainer"]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+size_flags_vertical = 4
+texture = ExtResource("7_febpr")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="Label" type="Label" parent="VBoxContainer/TabContainer/Console/HSplitContainer/VBoxContainer/PanelContainer2/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer3/PanelContainer2/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.8474744, 0.84747446, 0.84747446, 1)
+text = "Spectrum Client"
+
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer/TabContainer/Console/HSplitContainer/VBoxContainer/PanelContainer2/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/TabContainer/Console/HSplitContainer/VBoxContainer/PanelContainer2/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer3/PanelContainer"]
+layout_mode = 2
+theme_override_constants/separation = -1
+
+[node name="Panel" type="Panel" parent="VBoxContainer/TabContainer/Console/HSplitContainer/VBoxContainer/PanelContainer2/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer3/PanelContainer/HBoxContainer"]
+modulate = Color(0, 0.72066, 0.32107252, 1)
+custom_minimum_size = Vector2(10, 10)
+layout_mode = 2
+size_flags_horizontal = 2
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_x6rwm")
+
+[node name="Label2" type="Label" parent="VBoxContainer/TabContainer/Console/HSplitContainer/VBoxContainer/PanelContainer2/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer3/PanelContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.48962224, 0.48962224, 0.48962218, 1)
+theme_override_font_sizes/font_size = 14
+text = "Normal"
+vertical_alignment = 1
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer/TabContainer/Console/HSplitContainer/VBoxContainer/PanelContainer2/VBoxContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer/TabContainer/Console/HSplitContainer/VBoxContainer/PanelContainer2/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/TabContainer/Console/HSplitContainer/VBoxContainer/PanelContainer2/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer2/PanelContainer"]
+layout_mode = 2
+theme_override_constants/separation = -1
+
+[node name="Label2" type="Label" parent="VBoxContainer/TabContainer/Console/HSplitContainer/VBoxContainer/PanelContainer2/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer2/PanelContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.48962224, 0.48962224, 0.48962218, 1)
+theme_override_font_sizes/font_size = 14
+text = "Latest Release"
+vertical_alignment = 1
+
+[node name="PanelContainer2" type="PanelContainer" parent="VBoxContainer/TabContainer/Console/HSplitContainer/VBoxContainer/PanelContainer2/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/TabContainer/Console/HSplitContainer/VBoxContainer/PanelContainer2/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer2/PanelContainer2"]
+layout_mode = 2
+theme_override_constants/separation = -1
+
+[node name="Label2" type="Label" parent="VBoxContainer/TabContainer/Console/HSplitContainer/VBoxContainer/PanelContainer2/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer2/PanelContainer2/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.48962224, 0.48962224, 0.48962218, 1)
+theme_override_font_sizes/font_size = 14
+text = "V1.0.21"
+vertical_alignment = 1
+
 [node name="PanelContainer" type="PanelContainer" parent="VBoxContainer/TabContainer/Console/HSplitContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_styles/panel = ExtResource("3_oqhd1")
+theme_override_styles/panel = SubResource("StyleBoxFlat_iotmj")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/TabContainer/Console/HSplitContainer/VBoxContainer/PanelContainer"]
 layout_mode = 2
@@ -295,6 +481,7 @@ layout_mode = 2
 layout_mode = 2
 size_flags_horizontal = 3
 placeholder_text = "Search Running Instances"
+right_icon = ExtResource("14_ri43q")
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="VBoxContainer/TabContainer/Console/HSplitContainer"]
 layout_mode = 2
@@ -302,16 +489,35 @@ layout_mode = 2
 [node name="PanelContainer" type="PanelContainer" parent="VBoxContainer/TabContainer/Console/HSplitContainer/VBoxContainer2"]
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxEmpty_00dbt")
 
-[node name="Label" type="Label" parent="VBoxContainer/TabContainer/Console/HSplitContainer/VBoxContainer2/PanelContainer"]
+[node name="NoSelectedInstance" type="Label" parent="VBoxContainer/TabContainer/Console/HSplitContainer/VBoxContainer2/PanelContainer"]
+visible = false
 layout_mode = 2
 theme_override_colors/font_color = Color(0.4313402, 0.43134028, 0.43134007, 1)
 text = "No Selected Instance"
 horizontal_alignment = 1
 
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer/TabContainer/Console/HSplitContainer/VBoxContainer2/PanelContainer"]
+layout_mode = 2
+theme_override_fonts/normal_font = SubResource("FontVariation_q5s34")
+theme_override_styles/normal = SubResource("StyleBoxFlat_ucqqu")
+text = "  ___              _                  
+ / __|_ __  ___ __| |_ _ _ _  _ _ __  
+ \\__ \\ '_ \\/ -_) _|  _| '_| || | '  \\ 
+ |___/ .__/\\___\\__|\\__|_|  \\_,_|_|_|_|
+         |_| Version: v1.0.0-beta.3
+
+(c) 2026 Liam Sherwin. Licensed under GPL v3.
+
+INFO: CTL: (Spectrum Client): Starting Node
+INFO: CTL: (Spectrum Client): TCP bound on port: 41543
+INFO: CTL: (Spectrum Client): UDP bound on port: 54687
+"
+
 [node name="PanelContainer2" type="PanelContainer" parent="VBoxContainer/TabContainer/Console/HSplitContainer/VBoxContainer2"]
 layout_mode = 2
-theme_override_styles/panel = ExtResource("3_oqhd1")
+theme_override_styles/panel = SubResource("StyleBoxFlat_iotmj")
 
 [node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer/TabContainer/Console/HSplitContainer/VBoxContainer2/PanelContainer2"]
 layout_mode = 2
@@ -333,6 +539,7 @@ layout_mode = 2
 layout_mode = 2
 size_flags_horizontal = 3
 placeholder_text = "Search Logs"
+right_icon = ExtResource("14_ri43q")
 
 [node name="PanelContainer2" type="PanelContainer" parent="VBoxContainer/TabContainer/Console/HSplitContainer/VBoxContainer2/PanelContainer2/ScrollContainer/HBoxContainer"]
 layout_mode = 2
@@ -394,3 +601,6 @@ texture = ExtResource("2_qxptt")
 [connection signal="toggled" from="VBoxContainer/PanelContainer/HBoxContainer/PanelContainer/HBoxContainer/LauncherTabButton" to="VBoxContainer/TabContainer/Launcher" method="set_visible"]
 [connection signal="toggled" from="VBoxContainer/PanelContainer/HBoxContainer/PanelContainer/HBoxContainer/ConsoleTabButton" to="VBoxContainer/TabContainer/Console" method="set_visible"]
 [connection signal="toggled" from="VBoxContainer/PanelContainer/HBoxContainer/PanelContainer/HBoxContainer/SettingsTabButton" to="VBoxContainer/TabContainer/Settings" method="set_visible"]
+[connection signal="gui_input" from="VBoxContainer/TabContainer/Launcher/HSplitContainer/VBoxContainer/PanelContainer2/ScrollContainer/ClusterContainer" to="VBoxContainer/TabContainer/Launcher" method="_on_cluster_container_gui_input"]
+[connection signal="pressed" from="VBoxContainer/TabContainer/Launcher/HSplitContainer/VBoxContainer/PanelContainer/HBoxContainer/PanelContainer/HBoxContainer/CreateCluster" to="VBoxContainer/TabContainer/Launcher" method="_on_create_cluster_pressed"]
+[connection signal="pressed" from="VBoxContainer/TabContainer/Launcher/HSplitContainer/VBoxContainer/PanelContainer/HBoxContainer/PanelContainer/HBoxContainer/DeleteCluster" to="VBoxContainer/TabContainer/Launcher" method="_on_delete_cluster_pressed"]

@@ -8,6 +8,10 @@
 
 config_version=5
 
+[animation]
+
+compatibility/default_parent_skeleton_in_mesh_instance_3d=true
+
 [application]
 
 config/name="SpectrumLauncher"
@@ -17,12 +21,22 @@ config/use_custom_user_dir=true
 config/custom_user_dir_name="SpectrumLauncher"
 config/features=PackedStringArray("4.5", "GL Compatibility")
 boot_splash/bg_color=Color(0.0901961, 0.0901961, 0.0901961, 1)
-boot_splash/fullsize=false
 boot_splash/image="uid://c4qsb5k0bip1r"
 config/icon="uid://bodp6ipmivofb"
 config/macos_native_icon="res://assets/logos/spectrum_launcher/spectrum_launcher_dark.icns"
 config/windows_native_icon="res://assets/logos/spectrum_launcher/spectrum_launcher_dark.ico"
 boot_splash/minimum_display_time=1000
+boot_splash/stretch_mode=0
+
+[autoload]
+
+ClassList="*res://core/global/ClassList.gd"
+Launcher="*res://core/engine/launcher.gd"
+InputServer="*res://modules/Axis/global/Input.gd"
+Log="*res://modules/Utils/global/Logger.gd"
+Interface="*res://modules/Vertex/global/Interface.gd"
+UIDB="*res://modules/Vertex/global/UIDB.gd"
+ComponentDB="*res://core/global/ComponentDB.gd"
 
 [gui]
 

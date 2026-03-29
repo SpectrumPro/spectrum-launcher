@@ -1,0 +1,9 @@
+[submodule "modules/Utils"]
+	path = modules/Utils
+	url = https://github.com/spectrumpro/utils
+[submodule "modules/Axis"]
+	path = modules/Axis
+	url = https://github.com/spectrumpro/axis
+[submodule "modules/Vertex"]
+	path = modules/Vertex
+	url = https://github.com/spectrumpro/vertex

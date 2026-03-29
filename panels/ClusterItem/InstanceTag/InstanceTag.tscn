@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=3 uid="uid://4f6atf2q7xo6"]
+
+[ext_resource type="Texture2D" uid="uid://ck51tqhqcro1v" path="res://assets/logos/spectrum/dark_scaled/spectrum_dark-16x16.png" id="1_h8cao"]
+[ext_resource type="Script" uid="uid://8qnj0t3kxx5x" path="res://panels/ClusterItem/InstanceTag/InstanceTag.gd" id="1_he7jo"]
+
+[node name="InstanceTag" type="PanelContainer"]
+size_flags_horizontal = 3
+mouse_filter = 1
+script = ExtResource("1_he7jo")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = -1
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer"]
+custom_minimum_size = Vector2(10, 10)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("1_h8cao")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="VersionLabel" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.48962224, 0.48962224, 0.48962218, 1)
+theme_override_font_sizes/font_size = 14
+text = "version"
+vertical_alignment = 1
