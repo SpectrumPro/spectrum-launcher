@@ -49,7 +49,7 @@ var _cluster_connections: SignalGroup = SignalGroup.new([], {
 func _ready() -> void:
 	add_theme_stylebox_override("panel", get_theme_stylebox("panel").duplicate())
 	_default_color = get_theme_stylebox("panel").get_border_color()
-	_default_border_width = get_theme_stylebox("panel").get_border_width(MARGIN_TOP)
+	_default_border_width = get_theme_stylebox("panel").get_border_width(SIDE_TOP)
 
 
 ## Sets the cluster
