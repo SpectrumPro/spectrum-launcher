@@ -63,7 +63,7 @@ func set_cluster(p_cluster: Cluster) -> void:
 	if not is_valid:
 		return
 	
-	_set_name(_cluster.get_name())
+	_set_name(_cluster.get_uname())
 
 
 ## Sets the selected state of this ClusterItem

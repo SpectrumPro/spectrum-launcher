@@ -15,8 +15,10 @@ var _cluster: Cluster
 
 
 ## init
-func _init() -> void:
-	super._init()
+func _init(p_uuid: String = UUID.v4(), ...p_args: Array[Variant]) -> void:
+	super._init(p_uuid, p_args)
+	
+	set_uname("Instance")
 	_set_class_name("Instance")
 	
 	_settings.register_status("Cluster", Data.Type.OBJECT, get_cluster, [cluster_changed]).set_class_filter(Cluster)

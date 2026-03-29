@@ -13,10 +13,10 @@ signal cluster_added(cluster: Cluster)
 signal cluster_removed(cluster: Cluster)
 
 
-## All clusters in this CoreEngine
+## All clusters in this CoreLauncher
 var _clusters: Array[Cluster]
 
-## The SettingsManager for this CoreEngine
+## The SettingsManager for this CoreLauncher
 var _settings: SettingsManager = SettingsManager.new()
 
 
@@ -24,7 +24,6 @@ var _settings: SettingsManager = SettingsManager.new()
 func _init() -> void:
 	_settings.set_owner(self)
 	_settings.set_inheritance_array(["CoreLauncher"])
-
 
 
 ## Creates a new Cluster
@@ -35,23 +34,27 @@ func create_cluster() -> Cluster:
 	return new_cluster
 
 
-## Adds a cluster to this CoreEngine
-func add_cluster(p_cluster) -> bool:
+## Adds a cluster to this CoreLauncher
+func add_cluster(p_cluster: Cluster) -> bool:
 	if _clusters.has(p_cluster):
 		return false
 	
 	_clusters.append(p_cluster)
-	cluster_added.emit(p_cluster)
+	ComponentDB.register_component(p_cluster)
 	
+	p_cluster.delete_requested.connect(remove_cluster.bind(p_cluster))
+	cluster_added.emit(p_cluster)
 	return true
 
 
-## Removes a cluster from this CoreEngine
-func remove_cluster(p_cluster) -> bool:
+## Removes a cluster from this CoreLauncher
+func remove_cluster(p_cluster: Cluster) -> bool:
 	if not _clusters.has(p_cluster):
 		return false
 	
 	_clusters.erase(p_cluster)
+	ComponentDB.deregister_component(p_cluster)
+	
 	cluster_removed.emit(p_cluster)
 	return true
 

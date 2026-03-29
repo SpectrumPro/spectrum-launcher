@@ -96,7 +96,7 @@ func _on_create_cluster_pressed() -> void:
 
 ## Called when the DeleteCluster Button is pressed
 func _on_delete_cluster_pressed() -> void:
-	Launcher.remove_cluster(_selected_cluster)
+	_selected_cluster.delete()
 
 
 ## Called for each GUI input on the ClusterContainer
