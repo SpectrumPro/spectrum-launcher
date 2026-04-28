@@ -7,10 +7,10 @@ class_name Cluster extends LauncherItem
 
 
 ## Emitted when an instance is added
-signal instance_added(p_instance: Instance)
+signal instances_added(p_instances: Array[Instance])
 
 ## Emitted when an instance is removed
-signal instance_removed(p_instance: Instance)
+signal instances_removed(p_instances: Array[Instance])
 
 
 ## All instances in this Cluster
@@ -21,13 +21,32 @@ var _instances: Array[Instance]
 func _init(p_uuid: String = UUID.v4(), ...p_args: Array[Variant]) -> void:
 	super._init(p_uuid, p_args)
 	
-	set_uname("Instance")
+	set_uname("Cluster")
 	_set_class_name("Cluster")
+	
+	_settings.add_child_manager("Instances", ChildManager.new(
+		self, 
+		create_instance,
+		add_instance,
+		add_instances,
+		remove_instance,
+		remove_instances,
+		Callable(),
+		Callable(),
+		get_instances,
+		instances_added,
+		instances_removed,
+		LauncherItem,
+		Instance
+	))
 
 
 ## Creates a new Instance
-func create_instance() -> Instance:
-	var new_instance: Instance = Instance.new()
+func create_instance(p_classname: String) -> Instance:
+	if not ClassList.has_class(p_classname, "Instance"):
+		return null
+	
+	var new_instance: Instance = ClassList.get_class_script(p_classname).new()
 	
 	add_instance(new_instance)
 	return new_instance
@@ -38,21 +57,34 @@ func add_instance(p_instance: Instance, p_no_signal: bool = false) -> bool:
 	if p_instance.get_cluster():
 		return false
 	
-	p_instance._set_cluster(p_instance)
+	p_instance._set_cluster(self)
 	_instances.append(p_instance)
 	
 	p_instance.delete_requested.connect(remove_instance.bind(p_instance))
 	ComponentDB.register_component(p_instance)
 	
 	if not p_no_signal:
-		instance_added.emit(p_instance)
+		instances_added.emit([p_instance])
 	
 	return true
 
 
+## Adds mutiple instances
+func add_instances(p_instances: Array, p_no_signal: bool) -> void:
+	var just_added_instances: Array[Instance]
+	
+	for instance: Variant in p_instances:
+		if instance is Instance:
+			if add_instance(instance, true):
+				just_added_instances.append(instance)
+	
+	if not p_no_signal:
+		instances_added.emit(just_added_instances)
+
+
 ## Removes an instance
 func remove_instance(p_instance: Instance, p_no_signal: bool = false) -> bool:
-	if not p_instance.get_cluster() != self:
+	if p_instance.get_cluster() != self:
 		return false
 	
 	_instances.erase(p_instance)
@@ -61,9 +93,22 @@ func remove_instance(p_instance: Instance, p_no_signal: bool = false) -> bool:
 	ComponentDB.deregister_component(p_instance)
 	
 	if not p_no_signal:
-		instance_removed.emit(p_instance)
+		instances_removed.emit([p_instance])
 	
 	return true
+
+
+## Adds mutiple instances
+func remove_instances(p_instances: Array, p_no_signal: bool) -> void:
+	var just_removed_instances: Array[Instance]
+	
+	for instance: Variant in p_instances:
+		if instance is Instance:
+			if remove_instance(instance, true):
+				just_removed_instances.append(instance)
+	
+	if not p_no_signal:
+		instances_removed.emit(just_removed_instances)
 
 
 ## Returns all the instances in this Cluster

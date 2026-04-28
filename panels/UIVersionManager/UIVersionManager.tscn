@@ -1,0 +1,266 @@
+[gd_scene load_steps=16 format=3 uid="uid://dfnhs2pa4a06i"]
+
+[ext_resource type="StyleBox" uid="uid://daxhx5qr5qdeu" path="res://modules/Vertex/assets/styles/UIPanelBase.tres" id="1_oa822"]
+[ext_resource type="Script" uid="uid://dvpl03rbbfsr1" path="res://panels/UIVersionManager/UIVersionManager.gd" id="2_u2h8c"]
+[ext_resource type="PackedScene" uid="uid://dr0kfolsg46yu" path="res://modules/Vertex/panels/UIPanel/PanelMenuBar.tscn" id="3_hxxca"]
+[ext_resource type="PackedScene" uid="uid://bf3cbsyaotnnq" path="res://modules/Vertex/components/Table/Table.tscn" id="4_hscut"]
+[ext_resource type="Texture2D" uid="uid://jaopra4ynvth" path="res://modules/Vertex/assets/icons/Commit.svg" id="4_xy4k4"]
+[ext_resource type="Script" uid="uid://dxhu3tcpmq8hi" path="res://panels/UIVersionManager/ManagerTab.gd" id="5_3kktq"]
+[ext_resource type="StyleBox" uid="uid://csle20exwqtti" path="res://modules/Vertex/assets/styles/PanelMenuBar.tres" id="5_18bys"]
+[ext_resource type="Texture2D" uid="uid://dylarrrwlpxwu" path="res://modules/Vertex/assets/icons/Search.svg" id="6_vo55v"]
+[ext_resource type="Texture2D" uid="uid://dfrrs2dnvlvsu" path="res://modules/Vertex/assets/icons/Delete.svg" id="7_xy4k4"]
+[ext_resource type="Texture2D" uid="uid://b45woehlhukgj" path="res://modules/Vertex/assets/icons/Download.svg" id="8_3kktq"]
+[ext_resource type="Texture2D" uid="uid://bbennjke0ioen" path="res://modules/Vertex/assets/icons/Add.svg" id="8_vo55v"]
+[ext_resource type="StyleBox" uid="uid://bxwylw4uk8cyk" path="res://modules/Vertex/assets/styles/ClassSettingsBG.tres" id="9_6j0vw"]
+[ext_resource type="Texture2D" uid="uid://bsf1p0f2ta85" path="res://modules/Vertex/assets/icons/Remove.svg" id="10_8bojb"]
+[ext_resource type="Texture2D" uid="uid://qporw0h5fc8b" path="res://modules/Vertex/assets/icons/Stop.svg" id="12_xy4k4"]
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_usc1i"]
+
+[node name="UIVersionManager" type="PanelContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = ExtResource("1_oa822")
+script = ExtResource("2_u2h8c")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="PanelMenuBar" parent="VBoxContainer" instance=ExtResource("3_hxxca")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="ComponentButton" parent="VBoxContainer/PanelMenuBar/HBoxContainer" index="0"]
+text = "VersionManager"
+icon = ExtResource("4_xy4k4")
+
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer/PanelMenuBar/HBoxContainer/ScrollContainer" index="0"]
+layout_mode = 2
+size_flags_horizontal = 6
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/PanelMenuBar/HBoxContainer/ScrollContainer/PanelContainer"]
+layout_mode = 2
+
+[node name="ManagerTabButton" type="Button" parent="VBoxContainer/PanelMenuBar/HBoxContainer/ScrollContainer/PanelContainer/HBoxContainer"]
+custom_minimum_size = Vector2(110, 0)
+layout_mode = 2
+toggle_mode = true
+button_pressed = true
+button_group = SubResource("ButtonGroup_usc1i")
+text = "Manager"
+
+[node name="DownloadsTabButton" type="Button" parent="VBoxContainer/PanelMenuBar/HBoxContainer/ScrollContainer/PanelContainer/HBoxContainer"]
+custom_minimum_size = Vector2(110, 0)
+layout_mode = 2
+toggle_mode = true
+button_group = SubResource("ButtonGroup_usc1i")
+text = "Downloads"
+
+[node name="ManagerTab" type="PanelContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+script = ExtResource("5_3kktq")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/ManagerTab"]
+layout_mode = 2
+
+[node name="HSplitContainer" type="HSplitContainer" parent="VBoxContainer/ManagerTab/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+split_offset = 290
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/ManagerTab/VBoxContainer/HSplitContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="PanelContainer2" type="PanelContainer" parent="VBoxContainer/ManagerTab/VBoxContainer/HSplitContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="InstanceTable" parent="VBoxContainer/ManagerTab/VBoxContainer/HSplitContainer/VBoxContainer/PanelContainer2" instance=ExtResource("4_hscut")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer/ManagerTab/VBoxContainer/HSplitContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_styles/panel = ExtResource("5_18bys")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/ManagerTab/VBoxContainer/HSplitContainer/VBoxContainer/PanelContainer"]
+layout_mode = 2
+
+[node name="PanelContainer3" type="PanelContainer" parent="VBoxContainer/ManagerTab/VBoxContainer/HSplitContainer/VBoxContainer/PanelContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/ManagerTab/VBoxContainer/HSplitContainer/VBoxContainer/PanelContainer/HBoxContainer/PanelContainer3"]
+layout_mode = 2
+
+[node name="DisplayFilterOption" type="OptionButton" parent="VBoxContainer/ManagerTab/VBoxContainer/HSplitContainer/VBoxContainer/PanelContainer/HBoxContainer/PanelContainer3/HBoxContainer"]
+layout_mode = 2
+selected = 2
+item_count = 3
+popup/item_0/text = "All"
+popup/item_0/id = 0
+popup/item_1/text = "Available"
+popup/item_1/id = 1
+popup/item_2/text = "Downloaded"
+popup/item_2/id = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer/ManagerTab/VBoxContainer/HSplitContainer/VBoxContainer/PanelContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/ManagerTab/VBoxContainer/HSplitContainer/VBoxContainer/PanelContainer/HBoxContainer/PanelContainer"]
+layout_mode = 2
+
+[node name="SearchBar" type="LineEdit" parent="VBoxContainer/ManagerTab/VBoxContainer/HSplitContainer/VBoxContainer/PanelContainer/HBoxContainer/PanelContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "Search"
+right_icon = ExtResource("6_vo55v")
+
+[node name="PanelContainer2" type="PanelContainer" parent="VBoxContainer/ManagerTab/VBoxContainer/HSplitContainer/VBoxContainer/PanelContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/ManagerTab/VBoxContainer/HSplitContainer/VBoxContainer/PanelContainer/HBoxContainer/PanelContainer2"]
+layout_mode = 2
+
+[node name="DeleteSelected" type="Button" parent="VBoxContainer/ManagerTab/VBoxContainer/HSplitContainer/VBoxContainer/PanelContainer/HBoxContainer/PanelContainer2/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+disabled = true
+text = "Delete"
+icon = ExtResource("7_xy4k4")
+
+[node name="QueueSelected" type="Button" parent="VBoxContainer/ManagerTab/VBoxContainer/HSplitContainer/VBoxContainer/PanelContainer/HBoxContainer/PanelContainer2/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+disabled = true
+text = "Queue"
+icon = ExtResource("8_vo55v")
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="VBoxContainer/ManagerTab/VBoxContainer/HSplitContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer/ManagerTab/VBoxContainer/HSplitContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/ManagerTab/VBoxContainer/HSplitContainer/VBoxContainer2/PanelContainer"]
+layout_mode = 2
+
+[node name="QueueTable" parent="VBoxContainer/ManagerTab/VBoxContainer/HSplitContainer/VBoxContainer2/PanelContainer/VBoxContainer" instance=ExtResource("4_hscut")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer/ManagerTab/VBoxContainer/HSplitContainer/VBoxContainer2/PanelContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+theme_override_styles/panel = ExtResource("9_6j0vw")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/ManagerTab/VBoxContainer/HSplitContainer/VBoxContainer2/PanelContainer/VBoxContainer/PanelContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/ManagerTab/VBoxContainer/HSplitContainer/VBoxContainer2/PanelContainer/VBoxContainer/PanelContainer/HBoxContainer"]
+layout_mode = 2
+text = "Download Size:"
+
+[node name="DownloadSize" type="Label" parent="VBoxContainer/ManagerTab/VBoxContainer/HSplitContainer/VBoxContainer2/PanelContainer/VBoxContainer/PanelContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 10
+text = "0.0Gb"
+
+[node name="PanelContainer2" type="PanelContainer" parent="VBoxContainer/ManagerTab/VBoxContainer/HSplitContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_styles/panel = ExtResource("5_18bys")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/ManagerTab/VBoxContainer/HSplitContainer/VBoxContainer2/PanelContainer2"]
+layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer/ManagerTab/VBoxContainer/HSplitContainer/VBoxContainer2/PanelContainer2/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/ManagerTab/VBoxContainer/HSplitContainer/VBoxContainer2/PanelContainer2/HBoxContainer/PanelContainer"]
+layout_mode = 2
+
+[node name="RemoveSelected" type="Button" parent="VBoxContainer/ManagerTab/VBoxContainer/HSplitContainer/VBoxContainer2/PanelContainer2/HBoxContainer/PanelContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+disabled = true
+icon = ExtResource("10_8bojb")
+
+[node name="DownloadAll" type="Button" parent="VBoxContainer/ManagerTab/VBoxContainer/HSplitContainer/VBoxContainer2/PanelContainer2/HBoxContainer/PanelContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+disabled = true
+text = "Download All"
+icon = ExtResource("8_3kktq")
+
+[node name="DownloadsTab" type="PanelContainer" parent="VBoxContainer"]
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/DownloadsTab"]
+layout_mode = 2
+
+[node name="PanelContainer2" type="PanelContainer" parent="VBoxContainer/DownloadsTab/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Table" parent="VBoxContainer/DownloadsTab/VBoxContainer/PanelContainer2" instance=ExtResource("4_hscut")]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer/DownloadsTab/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/panel = ExtResource("5_18bys")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/DownloadsTab/VBoxContainer/PanelContainer"]
+layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer/DownloadsTab/VBoxContainer/PanelContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/DownloadsTab/VBoxContainer/PanelContainer/HBoxContainer/PanelContainer"]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="VBoxContainer/DownloadsTab/VBoxContainer/PanelContainer/HBoxContainer/PanelContainer/HBoxContainer"]
+layout_mode = 2
+disabled = true
+text = "Cancel"
+icon = ExtResource("12_xy4k4")
+
+[node name="PanelContainer2" type="PanelContainer" parent="VBoxContainer/DownloadsTab/VBoxContainer/PanelContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/DownloadsTab/VBoxContainer/PanelContainer/HBoxContainer/PanelContainer2"]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="VBoxContainer/DownloadsTab/VBoxContainer/PanelContainer/HBoxContainer/PanelContainer2/HBoxContainer"]
+layout_mode = 2
+disabled = true
+text = "Stop All"
+icon = ExtResource("7_xy4k4")
+
+[connection signal="toggled" from="VBoxContainer/PanelMenuBar/HBoxContainer/ScrollContainer/PanelContainer/HBoxContainer/ManagerTabButton" to="VBoxContainer/ManagerTab" method="set_visible"]
+[connection signal="toggled" from="VBoxContainer/PanelMenuBar/HBoxContainer/ScrollContainer/PanelContainer/HBoxContainer/DownloadsTabButton" to="VBoxContainer/DownloadsTab" method="set_visible"]
+
+[editable path="VBoxContainer/PanelMenuBar"]

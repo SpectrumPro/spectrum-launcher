@@ -266,6 +266,10 @@ disabled = true
 text = "Remove"
 icon = ExtResource("6_h6j8f")
 
+[node name="OpenChildManager" type="Button" parent="VBoxContainer/TabContainer/Launcher/HSplitContainer/VBoxContainer/PanelContainer/HBoxContainer/PanelContainer/HBoxContainer"]
+layout_mode = 2
+icon = ExtResource("12_avgbi")
+
 [node name="VBoxContainer2" type="VBoxContainer" parent="VBoxContainer/TabContainer/Launcher/HSplitContainer"]
 layout_mode = 2
 
@@ -611,3 +615,4 @@ texture = ExtResource("2_qxptt")
 [connection signal="gui_input" from="VBoxContainer/TabContainer/Launcher/HSplitContainer/VBoxContainer/PanelContainer2/ScrollContainer/ClusterContainer" to="VBoxContainer/TabContainer/Launcher" method="_on_cluster_container_gui_input"]
 [connection signal="pressed" from="VBoxContainer/TabContainer/Launcher/HSplitContainer/VBoxContainer/PanelContainer/HBoxContainer/PanelContainer/HBoxContainer/CreateCluster" to="VBoxContainer/TabContainer/Launcher" method="_on_create_cluster_pressed"]
 [connection signal="pressed" from="VBoxContainer/TabContainer/Launcher/HSplitContainer/VBoxContainer/PanelContainer/HBoxContainer/PanelContainer/HBoxContainer/DeleteCluster" to="VBoxContainer/TabContainer/Launcher" method="_on_delete_cluster_pressed"]
+[connection signal="pressed" from="VBoxContainer/TabContainer/Launcher/HSplitContainer/VBoxContainer/PanelContainer/HBoxContainer/PanelContainer/HBoxContainer/OpenChildManager" to="VBoxContainer/TabContainer/Launcher" method="_on_open_child_manager_pressed"]

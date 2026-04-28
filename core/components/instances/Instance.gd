@@ -21,7 +21,7 @@ func _init(p_uuid: String = UUID.v4(), ...p_args: Array[Variant]) -> void:
 	set_uname("Instance")
 	_set_class_name("Instance")
 	
-	_settings.register_status("Cluster", Data.Type.OBJECT, get_cluster, [cluster_changed]).set_class_filter(Cluster)
+	_settings.register_status("Cluster", Data.Type.OBJECT, get_cluster, [cluster_changed])
 
 
 ## Returns the Cluster this Instance belongs to

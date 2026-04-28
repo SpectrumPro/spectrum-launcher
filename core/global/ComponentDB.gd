@@ -2,7 +2,7 @@
 # This file is part of the Spectrum Lighting Engine, licensed under the GPL v3.0 or later.
 # See the LICENSE file for details.
 
-class_name CoreComponentDB extends ObjectDB
+class_name CoreComponentDB extends CoreObjectDB
 ## Contains a list of all the classes used in this project
 
 

@@ -33,8 +33,8 @@ var _cluster_item_connections: SignalGroup = SignalGroup.new([
 
 ## Ready
 func _ready() -> void:
-	Launcher.cluster_added.connect(_add_cluster)
-	Launcher.cluster_removed.connect(_remove_cluster)
+	Launcher.clusters_added.connect(_add_clusters)
+	Launcher.clusters_removed.connect(_remove_clusters)
 
 
 ## Sets the selected Cluster
@@ -55,7 +55,7 @@ func set_selected(p_cluster: Cluster) -> void:
 		return
 	
 	_clusters.left(_selected_cluster).set_selected(true)
-	cluster_manager.set_manager(p_cluster.get_settings_manager())
+	cluster_manager.set_manager(p_cluster.get_settings())
 
 
 ## Adds a Cluster to the list
@@ -67,6 +67,12 @@ func _add_cluster(p_cluster: Cluster) -> void:
 	
 	_clusters.map(p_cluster, new_item)
 	cluster_container.add_child(new_item)
+
+
+## Adds mutiple clusters to the list
+func _add_clusters(p_clusters: Array) -> void:
+	for cluster: Cluster in p_clusters:
+		_add_cluster(cluster)
 
 
 ## Removes a cluster from the list
@@ -81,6 +87,12 @@ func _remove_cluster(p_cluster: Cluster) -> void:
 		_clusters.erase_left(p_cluster)
 
 
+## Adds mutiple clusters to the list
+func _remove_clusters(p_clusters: Array) -> void:
+	for cluster: Cluster in p_clusters:
+		_remove_cluster(cluster)
+
+
 ## Called when a ClusterItem is clicked
 func _on_cluster_item_clicked(p_item: ClusterItem) -> void:
 	set_selected(_clusters.right(p_item))
@@ -90,13 +102,18 @@ func _on_cluster_item_clicked(p_item: ClusterItem) -> void:
 func _on_create_cluster_pressed() -> void:
 	var cluster: Cluster = Launcher.create_cluster()
 	
-	Interface.show_window_popup(UIPopupSettingsModule, self, cluster.get_settings_manager().get_entry("Name"))
+	Interface.show_window_popup(UIPopupSettingsModule, self, cluster.get_settings().get_entry("Name"))
 	set_selected(cluster)
 
 
 ## Called when the DeleteCluster Button is pressed
 func _on_delete_cluster_pressed() -> void:
-	_selected_cluster.delete()
+	Popups.confirm_delete_components(self, [_selected_cluster])
+
+
+## Called when the OpenChildManager button is pressed
+func _on_open_child_manager_pressed() -> void:
+	Popups.UChildManager(self, Launcher.get_settings().get_child_manager("Clusters"))
 
 
 ## Called for each GUI input on the ClusterContainer

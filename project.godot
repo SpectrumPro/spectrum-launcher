@@ -31,13 +31,17 @@ boot_splash/minimum_display_time=1000
 
 [autoload]
 
-ClassList="*res://core/global/ClassList.gd"
-Launcher="*res://core/engine/launcher.gd"
 Log="*res://modules/Utils/global/Logger.gd"
-Interface="*res://modules/Vertex/global/Interface.gd"
-InputServer="*res://modules/Axis/global/Input.gd"
-UIDB="*res://modules/Vertex/global/UIDB.gd"
+Data="*res://modules/Utils/global/Data.gd"
+ClassList="*res://core/global/ClassList.gd"
+GlobalClassList="*res://modules/Utils/global/GlobalClassList.gd"
 ComponentDB="*res://core/global/ComponentDB.gd"
+GlobalDB="*res://modules/Utils/global/GlobalDB.gd"
+InputServer="*res://modules/Axis/global/Input.gd"
+Popups="*res://global/Popups.gd"
+UIDB="*res://modules/Vertex/global/UIDB.gd"
+Interface="*res://modules/Vertex/global/Interface.gd"
+Launcher="*res://core/engine/launcher.gd"
 
 [display]
 

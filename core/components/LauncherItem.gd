@@ -78,12 +78,12 @@ func get_uuid() -> String:
 
 
 ## Returns the SettingsManager for this LauncherItem
-func get_settings_manager() -> SettingsManager:
+func get_settings() -> SettingsManager:
 	return _settings
 
 
 ## Returns the classname of this LauncherItem
-func get_classname() -> String:
+func get_class_name() -> String:
 	return _class_name
 
 

@@ -1,22 +1,22 @@
-[gd_scene load_steps=6 format=3 uid="uid://ckb04qr7yyeyn"]
+[gd_scene load_steps=7 format=3 uid="uid://ckb04qr7yyeyn"]
 
 [ext_resource type="Script" uid="uid://b173lkc6uyh1p" path="res://panels/UISettings/UISettings.gd" id="1_r1sf0"]
+[ext_resource type="StyleBox" uid="uid://daxhx5qr5qdeu" path="res://modules/Vertex/assets/styles/UIPanelBase.tres" id="1_vul28"]
 [ext_resource type="PackedScene" uid="uid://dr0kfolsg46yu" path="res://modules/Vertex/panels/UIPanel/PanelMenuBar.tscn" id="2_et17w"]
 [ext_resource type="PackedScene" uid="uid://kjup3yrjifr5" path="res://modules/Vertex/components/SettingsManagerView/SettingsManagerView.tscn" id="2_i5p4j"]
 [ext_resource type="Texture2D" uid="uid://c6xnsmttojanx" path="res://modules/Vertex/assets/icons/Settings.svg" id="3_vul28"]
 
 [sub_resource type="ButtonGroup" id="ButtonGroup_et17w"]
 
-[node name="UISettings" type="PanelContainer" node_paths=PackedStringArray("edit_controls", "menu_bar")]
+[node name="UISettings" type="PanelContainer"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
+theme_override_styles/panel = ExtResource("1_vul28")
 script = ExtResource("1_r1sf0")
-edit_controls = NodePath("VBoxContainer/PanelMenuBar/HBoxContainer/EditControls")
-menu_bar = NodePath("VBoxContainer/PanelMenuBar")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 2
